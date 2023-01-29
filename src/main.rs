@@ -25,12 +25,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let v: u16 = e_v.decrypt(&keys);
 
-    println!("{clear_a}");
-    println!("{clear_b}",);
+    println!("A: {clear_a}");
+    println!("B: {clear_b}",);
     let msb_v = (v >> 15) & 1;
     let msb_r = (random_r >> 15) & 1;
     let res = msb_v ^ msb_r;
-    println!("a {} b", if res == 0 { ">=" } else { "<" });
+    println!("Result: A {} B", if res == 0 { ">=" } else { "<" });
 
     let elapsed_time = now.elapsed();
     println!("Running main took {} seconds.", elapsed_time.as_secs());
